@@ -147,8 +147,15 @@ def main() -> int:
         print(f'template missing at {TEMPLATE}', file=sys.stderr)
         return 1
 
+    # If PROFILE_TOKEN isn't set in an automated environment, the script would
+    # overwrite a manually-populated README with zeroed private counts. Skip in
+    # that case so a previously good snapshot stays intact.
+    if not PROFILE_TOKEN and os.environ.get('GITHUB_ACTIONS'):
+        print('skipping rebuild: no PROFILE_TOKEN in CI, refusing to clobber populated README', file=sys.stderr)
+        return 0
+
     repos = fetch_all_repos()
-    print(f'fetched {len(repos)} repos (token={"yes" if TOKEN else "no"})', file=sys.stderr)
+    print(f'fetched {len(repos)} repos (profile_token={"yes" if PROFILE_TOKEN else "no"})', file=sys.stderr)
 
     template = TEMPLATE.read_text(encoding='utf-8')
     template = replace_section(template, 'ACTIVITY', render_activity(repos))
