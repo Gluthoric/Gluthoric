@@ -74,12 +74,6 @@ Python 3.13, FastAPI, React 19, Postgres 17, Slack Bolt, the Anthropic and OpenA
 
 ### Contribution graph
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Gluthoric/Gluthoric/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Gluthoric/Gluthoric/output/github-contribution-grid-snake.svg" />
-  <img alt="snake animation of contribution graph" src="https://raw.githubusercontent.com/Gluthoric/Gluthoric/output/github-contribution-grid-snake.svg" />
-</picture>
-
 ![3d contribution skyline](./profile-3d-contrib/profile-night-view.svg)
 
 ### Reach me
@@ -89,5 +83,5 @@ Open to talking about the work. The fastest path is via the projects above or a 
 ---
 
 <sub><!-- START:UPDATED -->
-Last rebuilt 2026-06-01 13:35 UTC via a GitHub Action that runs every hour.
+Last rebuilt 2026-06-01 13:48 UTC via a GitHub Action that runs every hour.
 <!-- END:UPDATED --></sub>
