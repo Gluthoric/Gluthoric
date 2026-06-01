@@ -41,25 +41,33 @@ Python 3.13, FastAPI, React 19, Postgres 17, Slack Bolt, the Anthropic and OpenA
 <!-- START:ACTIVITY -->
 | Window | Active repos | Public | Private |
 |--------|-------------:|-------:|--------:|
-| Last 7 days  | 0 | 0 | 0 |
-| Last 30 days | 0 | 0 | 0 |
-| Last 90 days | 3 | 3 | 0 |
+| Last 7 days  | 2 | 0 | 2 |
+| Last 30 days | 5 | 0 | 5 |
+| Last 90 days | 17 | 3 | 14 |
 
-**Total repos visible to this profile build:** 11 public, 0 private.
-
-_Private counts above are zero because this build does not have a `PROFILE_TOKEN` secret with private-repo read scope. Add one to surface real private activity counts._
+**Total repos visible to this profile build:** 11 public, 37 private.
 <!-- END:ACTIVITY -->
 
 ### Languages I work in most
 
 <!-- START:LANGUAGES -->
-`████████████████████` **Shell** — 1 repos
+`██████░░░░░░░░░░░░░░` **Python** — 11 repos
+
+`█████░░░░░░░░░░░░░░░` **TypeScript** — 9 repos
+
+`█████░░░░░░░░░░░░░░░` **HTML** — 9 repos
+
+`██░░░░░░░░░░░░░░░░░░` **JavaScript** — 4 repos
+
+`█░░░░░░░░░░░░░░░░░░░` **Shell** — 1 repos
+
+`█░░░░░░░░░░░░░░░░░░░` **GDScript** — 1 repos
 <!-- END:LANGUAGES -->
 
 ### Recently active public repos
 
 <!-- START:RECENT_PUBLIC -->
-- [`Gluthoric`](https://github.com/Gluthoric/Gluthoric) — Profile _(last push 2026-06-01, —)_
+- [`Gluthoric`](https://github.com/Gluthoric/Gluthoric) — Profile _(last push 2026-06-01, Python)_
 - [`claude-agents-kit`](https://github.com/Gluthoric/claude-agents-kit) — Seven opinionated subagent definitions for Claude Code — code review, debugging, security, architecture, UX, db, and orchestration. _(last push 2026-06-01, —)_
 - [`claude-statusline`](https://github.com/Gluthoric/claude-statusline) — Compact custom status line for Claude Code — model, cost, tokens, context, duration, subagent, worktree. _(last push 2026-06-01, Shell)_
 <!-- END:RECENT_PUBLIC -->
@@ -81,5 +89,5 @@ Open to talking about the work. The fastest path is via the projects above or a 
 ---
 
 <sub><!-- START:UPDATED -->
-Last rebuilt 2026-06-01 13:24 UTC via a GitHub Action that runs every hour.
+Last rebuilt 2026-06-01 13:35 UTC via a GitHub Action that runs every hour.
 <!-- END:UPDATED --></sub>
