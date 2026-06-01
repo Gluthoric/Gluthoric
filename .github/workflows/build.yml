@@ -1,0 +1,41 @@
+name: Build README
+
+on:
+  schedule:
+    - cron: "8 * * * *" # hourly at :08
+  push:
+    branches: [main]
+    paths:
+      - "profile_template.md"
+      - "build_profile.py"
+      - "requirements.txt"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Build README
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python build_profile.py
+      - name: Commit if changed
+        run: |
+          git config user.name 'profile-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          if [[ -n "$(git status --porcelain README.md)" ]]; then
+            git add README.md
+            git commit -m "chore: rebuild README"
+            git push
+          else
+            echo "README unchanged."
+          fi
