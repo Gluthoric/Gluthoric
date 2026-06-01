@@ -47,7 +47,7 @@ Python 3.13, FastAPI, React 19, Postgres 17, Slack Bolt, the Anthropic and OpenA
 
 **Total repos visible to this profile build:** 11 public, 0 private.
 
-_Private counts above are zero because this build is running unauthenticated. Add a `PROFILE_TOKEN` repo secret with a fine-grained PAT (read access to private repos) to surface private activity counts._
+_Private counts above are zero because this build does not have a `PROFILE_TOKEN` secret with private-repo read scope. Add one to surface real private activity counts._
 <!-- END:ACTIVITY -->
 
 ### Languages I work in most
@@ -81,5 +81,5 @@ Open to talking about the work. The fastest path is via the projects above or a 
 ---
 
 <sub><!-- START:UPDATED -->
-Last rebuilt 2026-06-01 13:21 UTC via a GitHub Action that runs every hour.
+Last rebuilt 2026-06-01 13:24 UTC via a GitHub Action that runs every hour.
 <!-- END:UPDATED --></sub>

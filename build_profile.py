@@ -27,17 +27,24 @@ ROOT = Path(__file__).resolve().parent
 TEMPLATE = ROOT / 'profile_template.md'
 OUTPUT = ROOT / 'README.md'
 
-TOKEN = os.environ.get('PROFILE_TOKEN') or os.environ.get('GITHUB_TOKEN', '')
+PROFILE_TOKEN = os.environ.get('PROFILE_TOKEN', '')
+FALLBACK_TOKEN = os.environ.get('GITHUB_TOKEN', '')
+TOKEN = PROFILE_TOKEN or FALLBACK_TOKEN
 HEADERS = {'Accept': 'application/vnd.github+json'}
 if TOKEN:
     HEADERS['Authorization'] = f'Bearer {TOKEN}'
 
 
 def fetch_all_repos() -> list[dict]:
-    """Return every repo the token can see — public always, private if PROFILE_TOKEN
-    has repo scope. Falls back to public-only listing if unauthenticated."""
+    """Return every repo the token can see.
+
+    /user/repos lists private repos but requires a user-scoped token (a PAT or
+    GitHub App user token). The default GITHUB_TOKEN inside Actions is repo-
+    scoped and will 403 on /user/repos, so we only hit that endpoint when a
+    dedicated PROFILE_TOKEN is provided.
+    """
     repos: list[dict] = []
-    if TOKEN and 'Authorization' in HEADERS:
+    if PROFILE_TOKEN:
         url = 'https://api.github.com/user/repos?per_page=100&affiliation=owner&sort=pushed'
     else:
         url = f'https://api.github.com/users/{USER}/repos?per_page=100&sort=pushed'
@@ -87,8 +94,8 @@ def render_activity(repos: list[dict]) -> str:
 
     totals = f'\n**Total repos visible to this profile build:** {len(public)} public, {len(private)} private.'
 
-    if not TOKEN or 'Authorization' not in HEADERS:
-        totals += '\n\n_Private counts above are zero because this build is running unauthenticated. Add a `PROFILE_TOKEN` repo secret with a fine-grained PAT (read access to private repos) to surface private activity counts._'
+    if not PROFILE_TOKEN:
+        totals += '\n\n_Private counts above are zero because this build does not have a `PROFILE_TOKEN` secret with private-repo read scope. Add one to surface real private activity counts._'
 
     return '\n'.join(table) + '\n' + totals
 
