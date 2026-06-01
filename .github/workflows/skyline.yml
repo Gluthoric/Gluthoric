@@ -25,7 +25,12 @@ jobs:
           git add -A profile-3d-contrib
           if [[ -n "$(git status --porcelain profile-3d-contrib)" ]]; then
             git commit -m "chore: update 3D contribution graph"
-            git push
+            # rebase on any concurrent commits before push (build.yml or manual)
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "push attempt $i failed, retrying..."
+              sleep 3
+            done
           else
             echo "3D contrib unchanged."
           fi

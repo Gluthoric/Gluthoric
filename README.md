@@ -17,7 +17,7 @@ I write code, run a homelab, and ship side projects across web apps, AI tooling,
 - [`claude-statusline`](https://github.com/Gluthoric/claude-statusline) — compact custom status line for Claude Code.
 - [`claude-agents-kit`](https://github.com/Gluthoric/claude-agents-kit) — seven opinionated subagent definitions for code review, debugging, security audits, architecture review, UX review, database analysis, and orchestration.
 
-**Hardware and systems.** ESP32 firmware for things like soil sensors and Wi-Fi scanners, printable parts in OpenSCAD, and Hyundai/KIA Gen5W navigation firmware tinkering. On the infrastructure side I run a security stack on my home network (Wazuh SIEM, ntopng flow analysis, Pi-hole DNS filtering, UniFi controller) and a Matter-backed Home Assistant deployment for everything that should be talking on the local network.
+**Hardware and systems.** My home network runs a real security stack: **Wazuh** SIEM for log aggregation and threat detection, **ntopng** for flow analysis, **Pi-hole** for DNS filtering and ad-blocking, a **UniFi** controller managing the wired and wireless fabric, and everything logging into a central indexer. A **Matter-backed Home Assistant** deployment handles physical-world automation on the same network. On the embedded side I write **ESP32 firmware** (soil sensors, Wi-Fi scanners), design printable parts in **OpenSCAD**, and occasionally tinker with Hyundai/KIA Gen5W navigation firmware when I want a vehicle to do something the manufacturer didn't intend.
 
 **Behind all of it,** my Obsidian vault is structured as a shared knowledge base where Claude, Gemini, and Codex each get their own scratchpads, with a memory layer that persists across sessions.
 
@@ -34,7 +34,13 @@ systemd-native, no Docker unless there's a real reason to use it.
 
 ### Stack I reach for
 
-Python 3.13, FastAPI, React 19, Postgres 17, Slack Bolt, the Anthropic and OpenAI APIs. Bare-metal Ubuntu on systemd. Tailscale for everything that needs to talk across hosts. Bitwarden Secrets Manager instead of `.env` files in repos. Obsidian for cross-machine notes and AI scratchpads.
+For API services I'm on **Python 3.13 + FastAPI + uvicorn** — async by default, Pydantic for typed request/response, OpenAPI generation comes free. Database is **Postgres 17**; `jsonb` and `ltree` cover most of what people reach for Mongo or graph databases for, and logical replication handles cross-host sync without dragging in a CDC tool. Frontend when I need one is **React 19** with Vite — server components have made the data-flow story noticeably cleaner than the old SSR dance.
+
+AI work goes through the **Anthropic and OpenAI APIs** directly, no LangChain abstraction in the middle. **Ollama** on a local GPU when latency or cost matters more than capability. I write **Model Context Protocol** servers when I want to give an agent real tools instead of rebuilding function-calling from scratch each time. Slack-resident agents run on **slack-bolt** in socket mode — no public ingress required, the bot connects out.
+
+Hosts are **bare-metal Ubuntu** managed by **systemd**. Services are units, logs come out of `journalctl` and stay there, no Docker tax unless something genuinely needs the isolation. **Tailscale** carries all internal traffic (mesh WireGuard with ACLs, no VLAN config to maintain). Secrets live in **Bitwarden Secrets Manager** and ship to hosts via a small `bws-link` script — never `.env` files committed to repos.
+
+Notes and AI scratchpads live in **Obsidian**, synced across machines with git + rsync. Each assistant (Claude, Gemini, Codex) gets its own scratchpad plus a shared memory layer that persists across sessions, so handoffs between them are cheap.
 
 ### Activity
 
@@ -83,5 +89,5 @@ Open to talking about the work. The fastest path is via the projects above or a 
 ---
 
 <sub><!-- START:UPDATED -->
-Last rebuilt 2026-06-01 13:48 UTC via a GitHub Action that runs every hour.
+Last rebuilt 2026-06-01 13:50 UTC via a GitHub Action that runs every hour.
 <!-- END:UPDATED --></sub>
