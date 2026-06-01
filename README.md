@@ -1,31 +1,40 @@
-### hi, i'm dustin
+## Dustin King
 
-IT director by day, full-stack dev and homelab operator by night. i build things end-to-end and ship over plan.
+I'm an IT director by day and a builder the rest of the time. I write code, run a homelab, and ship side projects across web apps, infra automation, AI tooling, and tabletop game tech.
 
-#### currently working on
+### What I'm working on
 
-- **momenta os / REID** — slack-native AI marketing agent for industrial B2B clients. private.
-- **foundry-vtt-mcp** — model context protocol server for foundry vtt.
-- **vitas nova** — homebrew 5e campaign wiki, obsidian → quartz → cloudflare pages.
-- **openclaw** — multi-agent video production pipeline.
-- **m365-admin-tool** — admin cli for compromised-user triage.
-- the **obsidian vault** that ties it all together — multi-agent collaboration model with claude / gemini / codex each running their own scratchpads.
+A Slack-native AI agent that helps a marketing team turn quick requests into publishable LinkedIn posts and on-brand graphics. Private client work, in active iteration.
 
-#### stack
+`foundry-vtt-mcp` — a Model Context Protocol server that lets language models query and act on a live Foundry VTT game state.
 
-python 3.13 · fastapi · react 19 · postgres 17 · slack bolt · anthropic + openai apis · ubuntu bare-metal + systemd · no docker if i can help it.
+Vitas Nova, a homebrew D&D 5e campaign wiki I run inside Obsidian and publish as a static site through Quartz on Cloudflare Pages.
 
-#### homelab
+A multi-agent video production pipeline (OpenClaw) and an M365 admin CLI built for compromised-user triage.
 
-multi-machine: rtx 5090 desktop, thinkpad p14s, production server, home server running pi-hole / unifi / wazuh / home assistant, all tailscale-meshed.
+Behind all of it sits my Obsidian vault, structured as a shared knowledge base where Claude, Gemini, and Codex each get their own scratchpads, plus a memory layer that persists across sessions.
 
-#### showcase
+### Stack I reach for
 
-a few small things i've open-sourced from my daily AI workflow:
+Python 3.13, FastAPI, React 19, Postgres 17, Slack Bolt, the Anthropic and OpenAI APIs. Ubuntu on bare metal with systemd. Tailscale for everything that needs to talk across hosts. I avoid Docker unless there's a real reason to use it.
 
-- [claude-statusline](https://github.com/Gluthoric/claude-statusline) — custom status line for claude code
-- [claude-agents-kit](https://github.com/Gluthoric/claude-agents-kit) — opinionated subagent definitions for code review, debugging, security, architecture
+### Homelab
 
-#### note
+A multi-machine setup: an RTX 5090 desktop, a ThinkPad P14s, a production application server, and a home services box running Pi-hole, UniFi, Wazuh, and Home Assistant. All of it is meshed over Tailscale.
 
-most of the interesting work is private — client code and personal projects in active iteration. happy to walk through any of it.
+### Public projects
+
+Pieces I've pulled out of my daily AI workflow and open-sourced:
+
+- [`claude-statusline`](https://github.com/Gluthoric/claude-statusline) is a compact status line for Claude Code that shows the model, session cost, token usage, context window, lines changed, duration, active subagent, and current worktree.
+- [`claude-agents-kit`](https://github.com/Gluthoric/claude-agents-kit) is a set of seven opinionated subagent definitions I use daily — code review, debugging, security audits, architecture review, UX review, database analysis, and team orchestration.
+
+### GitHub activity
+
+![Stats](https://github-readme-stats.vercel.app/api?username=Gluthoric&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&hide_title=true)
+
+Most of my work happens in private repos. The contribution graph above this section reflects that when the "Include private contributions on my profile" setting is enabled.
+
+### Reach me
+
+Open to talking about the work. The fastest path is via the projects above or a GitHub issue on one of the open-source repos.
