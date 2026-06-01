@@ -8,7 +8,9 @@ I write code, run a homelab, and ship side projects across web apps, AI tooling,
 
 ### What I build
 
-**AI and agents.** I've shipped a Slack-native agent that helps a marketing team turn quick prompts into publishable LinkedIn posts and on-brand graphics, and a dual-mode RAG chatbot for an arts and crafts business — a public widget for customers and a password-gated internal mode for staff. I write Model Context Protocol servers (the one for Foundry VTT lets language models query and act on a live tabletop game state). I also run a homegrown multi-agent video production pipeline and an M365 admin CLI built for compromised-user triage.
+**AI and agents.** I've shipped a Slack-native agent that helps a marketing team turn quick prompts into publishable LinkedIn posts and on-brand graphics, and a dual-mode RAG chatbot for an arts and crafts business — a public widget for customers and a password-gated internal mode for staff. I write Model Context Protocol servers (the one for Foundry VTT lets language models query and act on a live tabletop game state). I also run a homegrown multi-agent video production pipeline.
+
+**Security and identity.** I do incident response for small-to-mid Microsoft 365 tenants that don't have a SOC. [`m365-admin-tool`](https://github.com/Gluthoric/m365-admin-tool) is the open-source CLI I built for that work — a four-command compromised-user triage workflow (doctor / diagnose / timeline / contain) with structured JSON output, graceful degradation per data section, and an opt-in containment path that's logged for the incident write-up. The repo ships with a full playbook, architecture diagrams, and Graph + Exchange permission reference. The homelab side of this work runs **Wazuh SIEM**, **ntopng** for flow analysis, **Pi-hole** for DNS filtering, and a **UniFi** controller, all logging into a central indexer.
 
 **Tabletop game tech.** I maintain Vitas Nova, a homebrew D&D 5e campaign wiki I publish out of Obsidian through Quartz onto Cloudflare Pages. I run a Foundry VTT server for the campaign and built a session-recording and live-transcription pipeline so we can replay or annotate sessions afterward. There's also a 5e character sheet editor I wrote that produces print-ready PDFs.
 
@@ -17,7 +19,7 @@ I write code, run a homelab, and ship side projects across web apps, AI tooling,
 - [`claude-statusline`](https://github.com/Gluthoric/claude-statusline) — compact custom status line for Claude Code.
 - [`claude-agents-kit`](https://github.com/Gluthoric/claude-agents-kit) — seven opinionated subagent definitions for code review, debugging, security audits, architecture review, UX review, database analysis, and orchestration.
 
-**Hardware and systems.** My home network runs a real security stack: **Wazuh** SIEM for log aggregation and threat detection, **ntopng** for flow analysis, **Pi-hole** for DNS filtering and ad-blocking, a **UniFi** controller managing the wired and wireless fabric, and everything logging into a central indexer. A **Matter-backed Home Assistant** deployment handles physical-world automation on the same network. On the embedded side I write **ESP32 firmware** (soil sensors, Wi-Fi scanners), design printable parts in **OpenSCAD**, and occasionally tinker with Hyundai/KIA Gen5W navigation firmware when I want a vehicle to do something the manufacturer didn't intend.
+**Hardware and embedded.** A **Matter-backed Home Assistant** deployment handles physical-world automation across the local network. On the embedded side I write **ESP32 firmware** (soil sensors, Wi-Fi scanners), design printable parts in **OpenSCAD**, and occasionally tinker with Hyundai/KIA Gen5W navigation firmware when I want a vehicle to do something the manufacturer didn't intend.
 
 **Behind all of it,** my Obsidian vault is structured as a shared knowledge base where Claude, Gemini, and Codex each get their own scratchpads, with a memory layer that persists across sessions.
 
@@ -51,7 +53,7 @@ Notes and AI scratchpads live in **Obsidian**, synced across machines with git +
 | Last 30 days | 5 | 0 | 5 |
 | Last 90 days | 17 | 3 | 14 |
 
-**Total repos visible to this profile build:** 11 public, 37 private.
+**Total repos visible to this profile build:** 12 public, 37 private.
 <!-- END:ACTIVITY -->
 
 ### Languages I work in most
@@ -73,6 +75,7 @@ Notes and AI scratchpads live in **Obsidian**, synced across machines with git +
 ### Recently active public repos
 
 <!-- START:RECENT_PUBLIC -->
+- [`m365-admin-tool`](https://github.com/Gluthoric/m365-admin-tool) — Terminal-first Microsoft 365 and Entra investigation CLI for compromised-user triage. Doctor / diagnose / timeline / contain — structured JSON output, opt-in containment with audit logging. _(last push 2026-06-01, —)_
 - [`Gluthoric`](https://github.com/Gluthoric/Gluthoric) — Profile _(last push 2026-06-01, Python)_
 - [`claude-agents-kit`](https://github.com/Gluthoric/claude-agents-kit) — Seven opinionated subagent definitions for Claude Code — code review, debugging, security, architecture, UX, db, and orchestration. _(last push 2026-06-01, —)_
 - [`claude-statusline`](https://github.com/Gluthoric/claude-statusline) — Compact custom status line for Claude Code — model, cost, tokens, context, duration, subagent, worktree. _(last push 2026-06-01, Shell)_
@@ -89,5 +92,5 @@ Open to talking about the work. The fastest path is via the projects above or a 
 ---
 
 <sub><!-- START:UPDATED -->
-Last rebuilt 2026-06-01 13:50 UTC via a GitHub Action that runs every hour.
+Last rebuilt 2026-06-01 14:06 UTC via a GitHub Action that runs every hour.
 <!-- END:UPDATED --></sub>
